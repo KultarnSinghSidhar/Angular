@@ -1,0 +1,16 @@
+<main>
+  <h1>My Six Cards Demo</h1>
+  @if (CardsString.length != 0) {
+    <div id="cards-container">
+      @for (String of CardsString; track $index) {
+        <img [src]="String" width="150px" height="200px" alt="{{$index}}" style="margin: 20px; border: #333333 solid 2px; border-radius: 15px">
+      }
+    </div>
+  }
+
+  <div class="buttons-container">
+    <button class="button" (click)="Sort()">Sort</button>
+    <button class="button" (click)="Shuffle()">Shuffle</button>
+    <button class="button" (click)="Reverse()">Reverse</button>
+  </div>
+</main>
