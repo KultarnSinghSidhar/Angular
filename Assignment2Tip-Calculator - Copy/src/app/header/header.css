@@ -1,0 +1,30 @@
+header {
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+mat-toolbar {
+  background-color: #9c27b0;
+  color: white;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffe4f4;
+}
+
+button.mat-icon-button {
+  color: white;
+  align-content: end;
+}
+
+.spacer{
+  padding-left: 80%;
+}

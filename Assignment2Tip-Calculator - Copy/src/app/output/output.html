@@ -1,0 +1,62 @@
+<h2 class="receipt-title">Tip Calculator Receipt</h2>
+
+<div class="receipt-container" id="receipt">
+  <table class="receipt-table">
+    <tr>
+      <td class="label">Customer Name</td>
+      <td class="value left-align">{{ data.name }}</td>
+    </tr>
+    <tr>
+      <td class="label">Service Type</td>
+      <td class="value left-align">{{ data.serviceType }}</td>
+    </tr>
+    <tr>
+      <td class="label">Service Date</td>
+      <td class="value left-align">{{ data.date | date:'mediumDate' }}</td>
+    </tr>
+    <tr>
+      <td class="label">Notes</td>
+      <td class="value left-align">{{ data.notes || 'None' }}</td>
+    </tr>
+    <tr>
+      <td class="label">Service Cost</td>
+      <td class="value price">
+        <span class="currency">$</span>
+        <span class="amount">{{ data.cost.toFixed(2) }}</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Tip Quality</td>
+      <td class="value right-align">{{ (data.qualityPercent * 100) | number:'1.0-0' }}%</td>
+    </tr>
+    <tr>
+      <td class="label">Round Up?</td>
+      <td class="value right-align">{{ data.roundUp ? 'Yes' : 'No' }}</td>
+    </tr>
+    <tr class="total-row">
+      <td class="label">Calculated Tip</td>
+      <td class="value price total">
+        <span class="currency">$</span>
+        <span class="amount">{{ tipAmount.toFixed(2) }}</span>
+      </td>
+    </tr>
+    <tr class="total-row bold">
+      <td class="label">Total Payable</td>
+      <td class="value price total">
+        <span class="currency">$</span>
+        <span class="amount">{{ totalAmount.toFixed(2) }}</span>
+      </td>
+    </tr>
+  </table>
+
+  <div class="receipt-footer">
+    <p>Thank you for your business!</p>
+    <p class="small-print">Printed on {{ currentDate | date:'longDate' }} at {{currentDate | date:'mediumTime' }}</p>
+  </div>
+</div>
+
+<div class="receipt-actions">
+  <a mat-button color="primary" routerLink="/input">← Back</a>
+  <button mat-button onclick="print()">🖨️ Print Receipt</button>
+  <a mat-button color="accent" routerLink="/processing">↻ Recalculate</a>
+</div>
